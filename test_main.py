@@ -7,3 +7,7 @@ import pytest
                                              (5, 2, 2.5)])
 def test_divison_good(a, b, expresult):
     assert main.divison(a, b) == expresult
+
+def test_zero_division():
+    with pytest.raises(ZeroDivisionError):
+        assert main.divison(10, 0)
