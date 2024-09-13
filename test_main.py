@@ -11,3 +11,7 @@ def test_divison_good(a, b, expresult):
 def test_zero_division():
     with pytest.raises(ZeroDivisionError):
         assert main.divison(10, 0)
+
+def test_zero_division():
+    with pytest.raises(TypeError):
+        assert main.divison("Kholin", 0)
