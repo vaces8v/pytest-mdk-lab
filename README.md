@@ -21,3 +21,8 @@ source venv/bin/activate
 ```bash
 pip install -r .\requirements.txt
 ```
+
+## Запуск тестов 
+```bash
+pytest .\test_main.py -v
+```
