@@ -1,17 +1,26 @@
 import main
 import pytest
 
-@pytest.mark.parametrize("a, b, expresult", [(10, 2, 5),
-                                             (20, 10, 2),
-                                             (30, -3, -10),
-                                             (5, 2, 2.5)])
-def test_divison_good(a, b, expresult):
-    assert main.divison(a, b) == expresult
+@pytest.mark.parametrize("a, b, c, expresult", [
+    #Тесты на разносторонний треугольник
+    (3, 2, 4, 'Треугольник с сторонами 3, 2, 4 - Разносторонний'),
+    (2, 3.1, 5, 'Треугольник с сторонами 2, 3.1, 5 - Разносторонний'),
+    (10, 15, 20, 'Треугольник с сторонами 10, 15, 20 - Разносторонний'),
+    (55, 52, 33, 'Треугольник с сторонами 55, 52, 33 - Разносторонний'),
+    (2.1, 3.3, 2.0, 'Треугольник с сторонами 2.1, 3.3, 2.0 - Разносторонний'),
 
-def test_zero_division():
-    with pytest.raises(ZeroDivisionError):
-        assert main.divison(10, 0)
+    #Тесты на равнобедренный треугольник
+    (5, 5, 8, 'Треугольник с сторонами 5, 5, 8 - Равнобедренный'),
+    (7, 7, 10, 'Треугольник с сторонами 7, 7, 10 - Равнобедренный'),
 
-def test_zero_division():
-    with pytest.raises(TypeError):
-        assert main.divison("Kholin", 0)
+    # Тесты на равносторонний треугольник
+    (5, 5, 5, 'Треугольник с сторонами 5, 5, 5 - Равносторонний'),
+    (10, 10, 10, 'Треугольник с сторонами 10, 10, 10 - Равносторонний'),
+
+    #Тесты на некорректные значения
+    (0, 0, 0, None),
+    (-0, -0, -0, None),
+    (-1, -3, -4, None),
+])
+def test_getTypeTreeagle_good(a, b, c, expresult):
+    assert main.getTypeTreeagle(a, b, c) == expresult
